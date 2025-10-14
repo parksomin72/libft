@@ -3,8 +3,7 @@
 
 int main()
 {
-	char *s = "Hello World!";
-	char dst[50] = "";
+	char *s = "     	-174582369";
 
-	printf("%ld\n", ft_strlcat(dst, s, 5));
+	printf("atoi = %d\nft_atoi = %d\n", atoi(s), ft_atoi(s));
 }
