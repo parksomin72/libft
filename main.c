@@ -3,12 +3,9 @@
 
 int main()
 {
-	char c;
+	char *s = "Hello World!";
+	char dest[50] = "p";
 
-	printf("Enter your character: ");
-	scanf("%c", &c);
-	if (ft_isalpha(c) != 0)
-		printf("this character is alpha\n");
-	else if (ft_isdigit(c) != 0)
-		printf("this character is a digit\n");
+	ft_memcpy((void *)dest, s, 5);
+	printf("%s\n", dest);
 }
