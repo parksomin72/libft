@@ -3,7 +3,7 @@
 
 int main()
 {
-	char *s = "     	-174582369";
+	char *s = "Hi! there I'm new here";
 
-	printf("atoi = %d\nft_atoi = %d\n", atoi(s), ft_atoi(s));
+	printf("trim: %s\n",  ft_strtrim(s, "ie"));
 }
