@@ -9,6 +9,8 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	s1 = (unsigned char *)dest;
 	s2 = (const unsigned char *)src;
+	if (s1 == s2)
+		return (s1);
 	while (i < n)
 	{
 		s1[i] = s2[i];

@@ -21,9 +21,9 @@ char	*ft_strdup(const char *s)
 	if (!dest)
 		return (NULL);
 	i = 0;
-	while (src[i])
+	while (s[i])
 	{
-		dest[i] = src[i];
+		dest[i] = s[i];
 		i++;
 	}
 	dest[i] = '\0';
