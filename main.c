@@ -1,9 +1,13 @@
 #include "libft.h"
 #include <stdio.h>
 
+
 int main()
 {
-	char *s = "Hi! there I'm new here";
+	int a = 10;
 
-	printf("trim: %s\n",  ft_strtrim(s, "ie"));
+	t_list *tmp = NULL, *first;
+	first = ft_lstnew((void)&a);
+	tmp->next = first;
+	printf("%d\n", (int)first->content);
 }

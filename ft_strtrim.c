@@ -1,52 +1,53 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fael-han <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/15 18:35:44 by fael-han          #+#    #+#             */
+/*   Updated: 2025/10/16 01:36:11 by fael-han         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_strlen_trim(char const *s, char const *set)
+int ft_isfound(char c, char const *set)
 {
-	int	i;
-	int	y;
-	int	len;
+	int i;
 
-	len = 0;
-	y = 0;
-	while (s[y])
+	i = 0;
+	while (set[i])
 	{
-		i = 0;
-		while (set[i] && s[y] != set[i])
-		{
-			len++;
-			i++;
-		}
-		y++;
+		if (c == set[i])
+			return (1);
+		i++;
 	}
-	return (len);
+	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char *ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
-	int	i;
-	int	y;
+	int end;
+	int start;
 
 	if (!s1)
 		return (NULL);
-	if (!set || set[0] == '\0')
-		return ((char *)s1);
-	str = (char *)malloc(ft_strlen_trim(s1, set) + 1);
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (*s1)
-	{
-		y = 0;
-		while (set[y])
-		{
-			if (set[y] == *s1)
-				s1++;
-			y++;
-		}
-		str[i++] = *s1;
-		s1++;
-	}
-	str[i] = '\0';
-	return (str);
+	end = ft_strlen(s1) - 1;
+	start = 0;
+
+	while (ft_isfound(s1[start], set))
+		start++;
+	while (ft_isfound(s1[end], set))
+		end--;
+	return (ft_substr(s1, start, (end - start + 1)));
+}
+
+#include <stdio.h>
+
+int main()
+{
+	char *s = "    Hello World        hi There    ";
+	char *set = " ";
+	printf("%s\n", ft_strtrim(s, set));
 }
