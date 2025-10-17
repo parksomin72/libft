@@ -12,16 +12,15 @@
 
 #include "libft.h"
 
-int ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	char	*tmp;
-	int	sign;
-	int	result;
+	int		sign;
+	int		result;
 
 	tmp = (char *)nptr;
 	sign = 1;
 	result = 0;
-
 	while (*tmp == ' ' || *tmp == '\n' || *tmp == '\r' || *tmp == '\v'
 		|| *tmp == '\f' || *tmp == '\t')
 		tmp++;

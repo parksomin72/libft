@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fael-han <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/17 01:56:36 by fael-han          #+#    #+#             */
+/*   Updated: 2025/10/17 01:56:49 by fael-han         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_intlen(long n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n >= 0 && n <= 9)
@@ -20,10 +32,9 @@ int	ft_intlen(long n)
 	return (len);
 }
 
-
-char *ft_convert(long n, int size, char *str)
+char	*ft_convert(long n, int size, char *str)
 {
-	long nb;
+	long	nb;
 
 	if (n < 0)
 		nb = -n;
@@ -46,10 +57,10 @@ char *ft_convert(long n, int size, char *str)
 	return (str);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char *str;
-	int len;
+	char	*str;
+	int		len;
 
 	len = ft_intlen((long)n);
 	str = (char *)malloc(len + 1);
@@ -57,13 +68,3 @@ char *ft_itoa(int n)
 		return (NULL);
 	return (ft_convert((long)n, len, str));
 }
-/*
-#include <stdio.h>
-
-int main()
-{
-	int n = 2147483647;
-	int len = ft_intlen((long)n);
-
-	printf("%d\n%s\n", len, ft_itoa(n));
-}*/

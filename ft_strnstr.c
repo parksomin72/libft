@@ -6,7 +6,7 @@
 /*   By: fael-han <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 12:30:40 by fael-han          #+#    #+#             */
-/*   Updated: 2025/10/14 12:37:59 by fael-han         ###   ########.fr       */
+/*   Updated: 2025/10/17 02:00:40 by fael-han         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (*little)
 		return ((char *)big);
 	i = 0;
-	while (big [i] && i < len)
+	while (big[i] && i < len)
 	{
 		y = 0;
 		while (little[y] && big[i + y] && i + y < len

@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fael-han <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/17 01:58:32 by fael-han          #+#    #+#             */
+/*   Updated: 2025/10/17 01:58:38 by fael-han         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_count_words(char const *s, char c)
+int	ft_count_words(char const *s, char c)
 {
-	int in_word;
-	int i;
-	int count;
+	int	in_word;
+	int	i;
+	int	count;
 
 	in_word = 0;
 	count = 0;
@@ -23,9 +35,9 @@ int ft_count_words(char const *s, char c)
 	return (count);
 }
 
-int ft_wordlen(char const *s, char c)
+int	ft_wordlen(char const *s, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] && s[i] != c)
@@ -33,11 +45,11 @@ int ft_wordlen(char const *s, char c)
 	return (i);
 }
 
-char *ft_strdup_word(char const *s, char c, int *len)
+char	*ft_strdup_word(char const *s, char c, int *len)
 {
-	char *dest;
-	int size;
-	int i;
+	char	*dest;
+	int		size;
+	int		i;
 
 	size = ft_wordlen(s, c);
 	dest = (char *)malloc(size + 1);
@@ -54,17 +66,17 @@ char *ft_strdup_word(char const *s, char c, int *len)
 	return (dest);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **str;
-	int count_words;
-	int index_word;
-	int len;
+	char	**str;
+	int		count_words;
+	int		index_word;
+	int		len;
 
 	if (!s)
 		return (NULL);
 	count_words = ft_count_words(s, c);
-	str = (char **)malloc((count_words + 1) * sizeof(char*));
+	str = (char **)malloc((count_words + 1) * sizeof(char *));
 	if (!str)
 		return (NULL);
 	index_word = 0;
