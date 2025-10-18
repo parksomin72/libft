@@ -6,7 +6,7 @@
 /*   By: fael-han <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:35:44 by fael-han          #+#    #+#             */
-/*   Updated: 2025/10/16 01:36:11 by fael-han         ###   ########.fr       */
+/*   Updated: 2025/10/18 23:35:05 by fael-han         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (ft_isfound(s1[start], set))
 		start++;
 	if (start == end + 1)
-		return(ft_strdup(""));
+		return (ft_strdup(""));
 	while (ft_isfound(s1[end], set))
 		end--;
 	return (ft_substr(s1, start, (end - start + 1)));
