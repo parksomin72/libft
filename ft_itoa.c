@@ -40,10 +40,12 @@ char	*ft_convert(long n, int size, char *str)
 		nb = -n;
 	else
 		nb = n;
-	str[size - 1] = '\0';
+	str[size] = '\0';
+	if (n < 0)
+		str[0] = '-';
 	if (nb >= 0 && nb <= 9)
 	{
-		str[0] = nb + '0';
+		str[--size] = nb + '0';
 		return (str);
 	}
 	while (nb > 0)
@@ -52,8 +54,6 @@ char	*ft_convert(long n, int size, char *str)
 		size--;
 		nb /= 10;
 	}
-	if (n < 0)
-		str[0] = '-';
 	return (str);
 }
 
