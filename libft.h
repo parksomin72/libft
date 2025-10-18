@@ -16,6 +16,7 @@
 /**** Standard Labairies ****/
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 /**** Struct ****/
 typedef struct s_list

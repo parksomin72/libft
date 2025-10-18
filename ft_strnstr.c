@@ -17,9 +17,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	y;
 
-	if (*little)
+	if (!little)
 		return ((char *)big);
 	i = 0;
+	printf("alo \n");
 	while (big[i] && i < len)
 	{
 		y = 0;
