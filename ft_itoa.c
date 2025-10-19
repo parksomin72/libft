@@ -17,14 +17,14 @@ int	ft_intlen(long n)
 	int	len;
 
 	len = 0;
-	if (n >= 0 && n <= 9)
+	if (n >= 1 && n <= 9)
 		return (1);
 	if (n < 0)
 	{
 		len++;
 		n *= -1;
 	}
-	while (n > 0)
+	while (n)
 	{
 		len++;
 		n /= 10;
@@ -43,7 +43,7 @@ char	*ft_convert(long n, int size, char *str)
 	str[size] = '\0';
 	if (n < 0)
 		str[0] = '-';
-	if (nb >= 0 && nb <= 9)
+	if (nb >= 1 && nb <= 9)
 	{
 		str[--size] = nb + '0';
 		return (str);
@@ -62,6 +62,10 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		len;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
 	len = ft_intlen((long)n);
 	str = (char *)malloc(len + 1);
 	if (!str)
