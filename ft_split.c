@@ -109,6 +109,6 @@ char	**ft_split(char const *s, char c)
 			s += len;
 		}
 	}
-	str[index_word] = 0;
+	str[index_word] = NULL;
 	return (str);
 }

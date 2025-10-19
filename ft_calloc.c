@@ -17,11 +17,14 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	totalsize;
 	void	*ptr;
 
-	if (nmemb == 0 || size == 0)
-		return (malloc(1));
+	// if (nmemb == 0 || size == 0)
+	// 	return (ft_strdup(""));
 	totalsize = nmemb * size;
-	if (totalsize / nmemb != size)
+	if (totalsize && totalsize / nmemb != size)
+	{
+		// printf("nn\n");
 		return (NULL);
+	}
 	ptr = malloc(totalsize);
 	if (!ptr)
 		return (NULL);
