@@ -6,7 +6,6 @@ void ft_lstclear(t_list **lst, void (*del)(void *))
 
 	if (!*lst || !lst)
 		return ;
-	current = *lst;
 	while (*lst)
 	{
 		tmp = (*lst)->next;
