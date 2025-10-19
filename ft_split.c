@@ -6,7 +6,7 @@
 /*   By: fael-han <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 01:58:32 by fael-han          #+#    #+#             */
-/*   Updated: 2025/10/17 01:58:38 by fael-han         ###   ########.fr       */
+/*   Updated: 2025/10/19 23:01:40 by fael-han         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,19 @@ char	*ft_strdup_word(char const *s, char c, int *len)
 	return (dest);
 }
 
+void ft_free(char **str, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
@@ -87,6 +100,11 @@ char	**ft_split(char const *s, char c)
 		if (*s && *s != c)
 		{
 			str[index_word] = ft_strdup_word(s, c, &len);
+			if (!str[index_word])
+			{
+				ft_free(str, index_word);
+				return (NULL);
+			}
 			index_word++;
 			s += len;
 		}
