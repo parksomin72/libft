@@ -12,17 +12,19 @@
 
 #include "libft.h"
 
-size_t ft_intlen(long n)
+static int	ft_intlen(long n)
 {
-	size_t len;
+	int	len;
 
-	len = 1;
+	len = 0;
+	if (n >= 0 && n <= 9)
+		return (1);
 	if (n < 0)
 	{
 		len++;
 		n *= -1;
 	}
-	while (n > 9)
+	while (n > 0)
 	{
 		len++;
 		n /= 10;
@@ -30,42 +32,39 @@ size_t ft_intlen(long n)
 	return (len);
 }
 
-char *ft_convertooo(char *str, int n, int len)
+static char	*ft_convert(long n, int size, char *str)
 {
-	int issigned;
-	long nb;
+	long	nb;
 
-	nb = n;
-	str[len--] = '\0';
 	if (n < 0)
-	{
+		nb = -n;
+	else
+		nb = n;
+	str[size] = '\0';
+	if (n < 0)
 		str[0] = '-';
-		nb *= -1;
-	}
-	issigned = n < 0;
-	while (len >= issigned)
+	if (nb >= 0 && nb <= 9)
 	{
-		str[len--] = (nb % 10) + '0';
+		str[--size] = nb + '0';
+		return (str);
+	}
+	while (nb > 0)
+	{
+		str[size - 1] = (nb % 10) + '0';
+		size--;
 		nb /= 10;
 	}
 	return (str);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char *str;
-	int len;
+	char	*str;
+	int		len;
 
-	len = ft_intlen(n);
-	str = malloc(len + 1);
+	len = ft_intlen((long)n);
+	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
-	ft_convertooo(str,  n,  len);
-	return (str);
+	return (ft_convert((long)n, len, str));
 }
-
-// int main()
-// {
-// 	char *s = ft_itoa(-543000);
-// 	printf("%s\n", s);
-// }
