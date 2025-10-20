@@ -63,8 +63,8 @@ char *ft_itoa(int n)
 	return (ft_convert(str, n, len));
 }
 
-int main()
-{
-	char *s = ft_itoa(-543000);
-	printf("%s\n", s);
-}
+// int main()
+// {
+// 	char *s = ft_itoa(-543000);
+// 	printf("%s\n", s);
+// }
