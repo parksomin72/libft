@@ -32,18 +32,15 @@ size_t ft_intlen(long n)
 
 char *ft_convert(char *s, long n, int len)
 {
+	int issigned;
 	s[len--] = '\0';
 	if (n < 0)
 	{
 		s[0] = '-';
 		n *= -1;
 	}
-	if (n == 0)
-	{
-		s[0] = '0';
-		return (s);
-	}
-	while (n)
+	issigned = n < 0;
+	while (len > issigned)
 	{
 		s[len] = (n % 10) + '0';
 		len--;
@@ -63,3 +60,9 @@ char *ft_itoa(int n)
 		return (NULL);
 	return (ft_convert(str, n, len));
 }
+
+// int main()
+// {
+// 	char *s = ft_itoa(-2147483648);
+// 	printf("%s\n", s);
+// }
