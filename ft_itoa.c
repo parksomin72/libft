@@ -60,7 +60,8 @@ char *ft_itoa(int n)
 	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
-	return (ft_convert(str, n, len));
+	ft_convert(str, n, len);
+	return(str);
 }
 
 // int main()
