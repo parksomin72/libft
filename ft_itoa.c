@@ -30,7 +30,7 @@ size_t ft_intlen(long n)
 	return (len);
 }
 
-char *ft_convert(char *str, int n, int len)
+char *ft_convertooo(char *str, int n, int len)
 {
 	int issigned;
 	long nb;
@@ -60,7 +60,7 @@ char *ft_itoa(int n)
 	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
-	ft_convert(str,  n,  len);
+	ft_convertooo(str,  n,  len);
 	return (str);
 }
 
