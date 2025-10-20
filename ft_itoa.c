@@ -30,25 +30,25 @@ size_t ft_intlen(long n)
 	return (len);
 }
 
-char *ft_convert(char *s, int n, int len)
+char *ft_convert(char *str, int n, int len)
 {
 	int issigned;
 	long nb;
 
 	nb = n;
-	s[len--] = '\0';
+	str[len--] = '\0';
 	if (n < 0)
 	{
-		s[0] = '-';
+		str[0] = '-';
 		nb *= -1;
 	}
 	issigned = n < 0;
 	while (len >= issigned)
 	{
-		s[len--] = (nb % 10) + '0';
+		str[len--] = (nb % 10) + '0';
 		nb /= 10;
 	}
-	return (s);
+	return (str);
 }
 
 char *ft_itoa(int n)
@@ -60,8 +60,23 @@ char *ft_itoa(int n)
 	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
-	ft_convert(str, n, len);
-	return(str);
+	int issigned;
+	long nb;
+
+	nb = n;
+	str[len--] = '\0';
+	if (n < 0)
+	{
+		str[0] = '-';
+		nb *= -1;
+	}
+	issigned = n < 0;
+	while (len >= issigned)
+	{
+		str[len--] = (nb % 10) + '0';
+		nb /= 10;
+	}
+	return (str);
 }
 
 // int main()
