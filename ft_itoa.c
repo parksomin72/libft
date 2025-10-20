@@ -38,6 +38,11 @@ char *ft_convert(char *s, long n, int len)
 		s[0] = '-';
 		n *= -1;
 	}
+	if (n == 0)
+	{
+		s[0] = '0';
+		return (s);
+	}
 	while (n)
 	{
 		s[len] = (n % 10) + '0';
