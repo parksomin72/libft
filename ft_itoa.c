@@ -60,22 +60,7 @@ char *ft_itoa(int n)
 	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
-	int issigned;
-	long nb;
-
-	nb = n;
-	str[len--] = '\0';
-	if (n < 0)
-	{
-		str[0] = '-';
-		nb *= -1;
-	}
-	issigned = n < 0;
-	while (len >= issigned)
-	{
-		str[len--] = (nb % 10) + '0';
-		nb /= 10;
-	}
+	ft_convert(str,  n,  len);
 	return (str);
 }
 
