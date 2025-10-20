@@ -30,12 +30,6 @@ size_t ft_intlen(long n)
 	return (len);
 }
 
-char *ft_convert(char *s, int n, int len)
-{
-
-	return (s);
-}
-
 char *ft_itoa(int n)
 {
 	char *str;
