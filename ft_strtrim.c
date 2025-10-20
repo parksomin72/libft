@@ -43,12 +43,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		end--;
 	return (ft_substr(s1, start, (end - start + 1)));
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char *s = "    Hello World        hi There    ";
-// 	char *set = " ";
-// 	printf("%s\n", ft_strtrim(s, set));
-// }
