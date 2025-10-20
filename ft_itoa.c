@@ -30,7 +30,7 @@ size_t ft_intlen(long n)
 	return (len);
 }
 
-char *ft_convertooo(char *str, int n, int len)
+char *ft_convert(char *str, int n, int len)
 {
 	int issigned;
 	long nb;
