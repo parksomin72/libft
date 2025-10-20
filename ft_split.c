@@ -6,7 +6,7 @@
 /*   By: fael-han <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 01:58:32 by fael-han          #+#    #+#             */
-/*   Updated: 2025/10/19 23:01:40 by fael-han         ###   ########.fr       */
+/*   Updated: 2025/10/20 03:21:07 by fael-han         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ char	*ft_strdup_word(char const *s, char c, int *len)
 	return (dest);
 }
 
-void ft_free(char **str, int size)
+char	**ft_free(char **str, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size)
@@ -77,19 +77,18 @@ void ft_free(char **str, int size)
 		i++;
 	}
 	free(str);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	int		count_words;
 	int		index_word;
 	int		len;
 
 	if (!s)
 		return (NULL);
-	count_words = ft_count_words(s, c);
-	str = (char **)malloc((count_words + 1) * sizeof(char *));
+	str = (char **)malloc((ft_count_words(s, c) + 1) * sizeof(char *));
 	if (!str)
 		return (NULL);
 	index_word = 0;
@@ -101,12 +100,9 @@ char	**ft_split(char const *s, char c)
 		{
 			str[index_word] = ft_strdup_word(s, c, &len);
 			if (!str[index_word])
-			{
-				ft_free(str, index_word);
-				return (NULL);
-			}
-			index_word++;
+				return (ft_free(str, index_word));
 			s += len;
+			index_word++;
 		}
 	}
 	str[index_word] = NULL;

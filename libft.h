@@ -6,26 +6,23 @@
 /*   By: fael-han <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 01:11:15 by fael-han          #+#    #+#             */
-/*   Updated: 2025/10/19 05:36:19 by fael-han         ###   ########.fr       */
+/*   Updated: 2025/10/20 02:46:31 by fael-han         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-/**** Standard Labairies ****/
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 
-/**** Struct ****/
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
 
-/**** Part 1 - Libc functions ****/
 int					ft_isalpha(int c);
 int					ft_isalnum(int c);
 int					ft_isdigit(int c);
@@ -50,8 +47,6 @@ char				*ft_strnstr(const char *big, const char *little,
 int					ft_atoi(const char *nptr);
 void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_strdup(const char *s);
-
-/**** Part 2 - Additional functions  ****/
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
@@ -64,7 +59,6 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
-/**** Bonus part ****/
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
@@ -74,6 +68,6 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
- 						void (*del)(void *));
+						void (*del)(void *));
 
 #endif

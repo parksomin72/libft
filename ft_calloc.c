@@ -6,7 +6,7 @@
 /*   By: fael-han <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:41:51 by fael-han          #+#    #+#             */
-/*   Updated: 2025/10/17 01:55:33 by fael-han         ###   ########.fr       */
+/*   Updated: 2025/10/20 02:47:15 by fael-han         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,9 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	totalsize;
 	void	*ptr;
 
-	// if (nmemb == 0 || size == 0)
-	// 	return (ft_strdup(""));
 	totalsize = nmemb * size;
 	if (totalsize && totalsize / nmemb != size)
 	{
-		// printf("nn\n");
 		return (NULL);
 	}
 	ptr = malloc(totalsize);
