@@ -30,27 +30,6 @@ size_t ft_intlen(long n)
 	return (len);
 }
 
-char *ft_convert(char *str, int n, int len)
-{
-	int issigned;
-	long nb;
-
-	nb = n;
-	str[len--] = '\0';
-	if (n < 0)
-	{
-		str[0] = '-';
-		nb *= -1;
-	}
-	issigned = n < 0;
-	while (len >= issigned)
-	{
-		str[len--] = (nb % 10) + '0';
-		nb /= 10;
-	}
-	return (str);
-}
-
 char *ft_itoa(int n)
 {
 	char *str;
